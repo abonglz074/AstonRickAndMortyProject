@@ -1,4 +1,4 @@
-package com.mytestprogram.finalproject
+package com.mytestprogram.astonrickandmortyproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

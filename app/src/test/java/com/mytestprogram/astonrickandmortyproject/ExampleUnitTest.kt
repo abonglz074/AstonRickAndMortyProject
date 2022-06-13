@@ -1,4 +1,4 @@
-package com.mytestprogram.finalproject
+package com.mytestprogram.astonrickandmortyproject
 
 import org.junit.Test
 
