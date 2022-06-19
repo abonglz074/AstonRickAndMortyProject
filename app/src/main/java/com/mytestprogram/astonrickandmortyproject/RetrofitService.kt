@@ -5,6 +5,9 @@ import retrofit2.http.GET
 
 interface RetrofitService {
 
-    @GET("character/2")
+    @GET("character")
     fun getCharacterById(): Call<GetCharacterByIdResponse>
+
+    @GET("character/{character-id}")
+    fun getSingleCharacterById(): Call<GetSingleCharacterByIResponse>
 }
