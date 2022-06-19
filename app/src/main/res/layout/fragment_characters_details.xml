@@ -19,8 +19,10 @@
         android:id="@+id/character_details_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/standard_margin_dimension"
+        android:textStyle="bold"
         android:text="Default Name"
+        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@id/character_details_gender"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/character_details_imageview" />
@@ -29,9 +31,9 @@
         android:id="@+id/character_details_gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/standard_margin_dimension"
         android:text="Gender"
-
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@id/character_details_imageview"
         app:layout_constraintStart_toEndOf="@id/character_details_name"
         app:layout_constraintTop_toBottomOf="@id/character_details_imageview" />
@@ -40,8 +42,9 @@
         android:id="@+id/character_details_origin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/standard_margin_dimension"
         android:text="Origin"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@id/character_details_name"
         app:layout_constraintStart_toStartOf="@id/character_details_name"
         app:layout_constraintTop_toBottomOf="@id/character_details_name" />
@@ -50,8 +53,9 @@
         android:id="@+id/character_details_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/standard_margin_dimension"
         android:text="Location"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@id/character_details_gender"
         app:layout_constraintStart_toStartOf="@id/character_details_gender"
         app:layout_constraintTop_toBottomOf="@id/character_details_name" />
@@ -61,8 +65,9 @@
         android:id="@+id/character_details_species"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/standard_margin_dimension"
         android:text="Species"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@id/character_details_name"
         app:layout_constraintStart_toStartOf="@id/character_details_name"
         app:layout_constraintTop_toBottomOf="@id/character_details_origin" />
@@ -71,7 +76,8 @@
         android:id="@+id/character_details_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/standard_margin_dimension"
+        android:textSize="16sp"
         android:text="Status"
         app:layout_constraintEnd_toEndOf="@id/character_details_gender"
         app:layout_constraintStart_toStartOf="@id/character_details_gender"
@@ -81,10 +87,12 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:id="@+id/character_details_recyclerview_episodes"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/standard_margin_dimension"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/character_details_species"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/character_details_recyclerview_episodes_item"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

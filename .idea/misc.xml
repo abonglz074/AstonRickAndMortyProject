@@ -5,12 +5,17 @@
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/character_details_recyclerview_episodes.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/character_details_recyclerview_episodes_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/fragment_characters_details.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/fragment_episodes_details.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/fragment_list_characters.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/fragment_list_episodes.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/fragment_list_locations.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/fragment_location_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/list_episodes_recyclerview_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/list_locations_recyclerview_item.xml" value="0.49122807017543857" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/locations_recyclerview_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/single_item_list_characters.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/FinalProject/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/FinalProject/app/src/main/res/layout/fragment_list_characters.xml" value="0.1" />

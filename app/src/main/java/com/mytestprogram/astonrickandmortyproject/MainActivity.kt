@@ -20,31 +20,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val moshi = Moshi.Builder().build()
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.fragment_container, CharactersListFragment())
+                .commit()
+        }
 
-        val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://rickandmortyapi.com/api/")
-            .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .build()
-
-        val service = retrofit.create(RetrofitService::class.java)
-
-        service.getCharacterById().enqueue(object : Callback<GetCharacterByIdResponse> {
-            override fun onResponse(
-                call: Call<GetCharacterByIdResponse>,
-                response: Response<GetCharacterByIdResponse>
-            ) {
-                val body = response.body()!!
-                val name = body.name
-
-                binding.testTextID.text = name
-
-
-            }
-
-            override fun onFailure(call: Call<GetCharacterByIdResponse>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
-        })
     }
 }
