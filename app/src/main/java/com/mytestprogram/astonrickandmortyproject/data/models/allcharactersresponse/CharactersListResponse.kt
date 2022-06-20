@@ -2,5 +2,5 @@ package com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresp
 
 data class CharactersListResponse(
     val info: Info,
-    val results: List<Character>
+    val results: List<SingleCharacter>
 )

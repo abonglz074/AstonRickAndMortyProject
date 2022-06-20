@@ -2,5 +2,5 @@ package com.mytestprogram.astonrickandmortyproject.data.models.alllocationsrespo
 
 data class LocationsListResponse(
     val info: Info,
-    val results: List<Result>
+    val results: List<SingleLocation>
 )

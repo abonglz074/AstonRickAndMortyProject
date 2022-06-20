@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mytestprogram.astonrickandmortyproject.databinding.ActivityMainBinding
 import com.mytestprogram.astonrickandmortyproject.screens.characters.CharacterDetailsFragment
-import com.mytestprogram.astonrickandmortyproject.screens.characters.ListCharactersFragment
+import com.mytestprogram.astonrickandmortyproject.screens.locations.ListLocationsFragment
 
 class MainActivity : AppCompatActivity(), NavigatorInterface {
 
@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity(), NavigatorInterface {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, ListCharactersFragment())
+                .add(R.id.fragment_container, ListLocationsFragment())
                 .commit()
         }
 

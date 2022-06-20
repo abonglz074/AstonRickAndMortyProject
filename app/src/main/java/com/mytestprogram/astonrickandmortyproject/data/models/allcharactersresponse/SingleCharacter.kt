@@ -1,4 +1,4 @@
-package com.mytestprogram.astonrickandmortyproject.data.models.singlecharacterresponse
+package com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse
 
 data class SingleCharacter(
     val created: String,

@@ -4,12 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.SingleCharacter
 import com.mytestprogram.astonrickandmortyproject.databinding.CharactersListRecyclerviewItemBinding
 
 class ListCharactersAdapter:
     RecyclerView.Adapter<ListCharactersAdapter.ListCharactersViewHolder>() {
 
-    var characters: List<Character> = emptyList()
+    var characters: List<SingleCharacter> = emptyList()
 
     set(newValue){
         field = newValue

@@ -1,6 +1,6 @@
 package com.mytestprogram.astonrickandmortyproject.data.models.alllocationsresponse
 
-data class Result(
+data class SingleLocation(
     val created: String,
     val dimension: String,
     val id: Int,
