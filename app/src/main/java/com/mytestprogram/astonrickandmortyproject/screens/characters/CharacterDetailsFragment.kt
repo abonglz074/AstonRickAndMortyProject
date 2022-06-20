@@ -1,4 +1,4 @@
-package com.mytestprogram.astonrickandmortyproject.screens
+package com.mytestprogram.astonrickandmortyproject.screens.characters
 
 import android.os.Bundle
 import androidx.core.os.bundleOf
@@ -19,7 +19,7 @@ class CharacterDetailsFragment: Fragment() {
 
         private const val ARG_CONTACT_ID = "ARG_CONTACT_ID"
 
-        fun newInstance(id: Long): CharacterDetailsFragment {
+        fun newInstance(id: Int): CharacterDetailsFragment {
             val args = Bundle()
 
             val fragment = CharacterDetailsFragment()

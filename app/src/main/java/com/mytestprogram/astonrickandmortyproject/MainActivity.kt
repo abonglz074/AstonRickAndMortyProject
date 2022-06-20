@@ -3,8 +3,8 @@ package com.mytestprogram.astonrickandmortyproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mytestprogram.astonrickandmortyproject.databinding.ActivityMainBinding
-import com.mytestprogram.astonrickandmortyproject.screens.CharacterDetailsFragment
-import com.mytestprogram.astonrickandmortyproject.screens.ListCharactersFragment
+import com.mytestprogram.astonrickandmortyproject.screens.characters.CharacterDetailsFragment
+import com.mytestprogram.astonrickandmortyproject.screens.characters.ListCharactersFragment
 
 class MainActivity : AppCompatActivity(), NavigatorInterface {
 
@@ -25,7 +25,24 @@ class MainActivity : AppCompatActivity(), NavigatorInterface {
 
     override fun showCharacterDetails(characterId: Int) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, CharacterDetailsFragment())
+            .replace(R.id.fragment_container, CharacterDetailsFragment.newInstance(characterId))
+            .addToBackStack(null)
             .commit()
+    }
+
+    override fun showLocationsList() {
+        TODO("Not yet implemented")
+    }
+
+    override fun showEpisodesList() {
+        TODO("Not yet implemented")
+    }
+
+    override fun showLocationDetails() {
+        TODO("Not yet implemented")
+    }
+
+    override fun showEpisodeDetails() {
+        TODO("Not yet implemented")
     }
 }

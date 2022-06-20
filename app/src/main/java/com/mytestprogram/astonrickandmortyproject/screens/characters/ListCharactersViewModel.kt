@@ -1,18 +1,13 @@
-package com.mytestprogram.astonrickandmortyproject.screens
+package com.mytestprogram.astonrickandmortyproject.screens.characters
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mytestprogram.astonrickandmortyproject.data.models.Character
-import com.mytestprogram.astonrickandmortyproject.data.models.CharactersListResponse
-import com.mytestprogram.astonrickandmortyproject.data.network.CharactersRepository
+import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.CharactersListResponse
 import com.mytestprogram.astonrickandmortyproject.data.network.NetworkInstance
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class ListCharactersViewModel: ViewModel() {
 
