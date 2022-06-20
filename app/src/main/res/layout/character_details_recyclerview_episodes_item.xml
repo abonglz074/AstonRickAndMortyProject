@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/episode_name"
@@ -27,11 +26,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/episode_airdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/episode_airdate_in_recyclerview_character_details"
-        android:text="2017-11-04T18:50:21.651Z"
         android:layout_marginTop="@dimen/standard_margin_dimension"
+        android:text="2017-11-04T18:50:21.651Z"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@id/episode_name"
         app:layout_constraintTop_toBottomOf="@id/episode_name" />

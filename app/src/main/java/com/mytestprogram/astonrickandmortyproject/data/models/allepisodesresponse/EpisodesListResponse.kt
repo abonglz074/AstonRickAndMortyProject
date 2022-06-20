@@ -2,5 +2,5 @@ package com.mytestprogram.astonrickandmortyproject.data.models.allepisodesrespon
 
 data class EpisodesListResponse(
     val info: Info,
-    val results: List<Any>
+    val results: List<SingleEpisode>
 )

@@ -29,9 +29,7 @@ class ListLocationsFragment: Fragment() {
         viewModel.locationsList.observe(viewLifecycleOwner, Observer {
             adapter.locations = viewModel.locationsList.value!!.results
         })
-
-
-
+        
         return binding.root
     }
 

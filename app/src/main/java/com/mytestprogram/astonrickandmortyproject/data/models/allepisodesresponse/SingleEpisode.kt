@@ -1,4 +1,4 @@
-package com.mytestprogram.astonrickandmortyproject.data.models.singleepisoderesponse
+package com.mytestprogram.astonrickandmortyproject.data.models.allepisodesresponse
 
 data class SingleEpisode(
     val air_date: String,
