@@ -3,15 +3,10 @@ package com.mytestprogram.astonrickandmortyproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mytestprogram.astonrickandmortyproject.databinding.ActivityMainBinding
-import com.squareup.moshi.Moshi
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.mytestprogram.astonrickandmortyproject.screens.CharacterDetailsFragment
+import com.mytestprogram.astonrickandmortyproject.screens.ListCharactersFragment
 
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigatorInterface {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -22,9 +17,15 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, CharactersListFragment())
+                .add(R.id.fragment_container, ListCharactersFragment())
                 .commit()
         }
 
+    }
+
+    override fun showCharacterDetails(characterId: Int) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, CharacterDetailsFragment())
+            .commit()
     }
 }
