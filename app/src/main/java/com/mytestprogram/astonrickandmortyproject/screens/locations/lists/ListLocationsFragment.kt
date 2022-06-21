@@ -1,4 +1,4 @@
-package com.mytestprogram.astonrickandmortyproject.screens.locations
+package com.mytestprogram.astonrickandmortyproject.screens.locations.lists
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import com.mytestprogram.astonrickandmortyproject.data.models.alllocationsresponse.SingleLocation
 import com.mytestprogram.astonrickandmortyproject.databinding.FragmentListLocationsBinding
+import com.mytestprogram.astonrickandmortyproject.screens.navigator
 
 class ListLocationsFragment: Fragment() {
 
@@ -22,14 +24,18 @@ class ListLocationsFragment: Fragment() {
     ): View? {
         binding = FragmentListLocationsBinding.inflate(inflater, container, false)
 
-        adapter = ListLocationsAdapter()
+        adapter = ListLocationsAdapter(object : ListLocationsActionListener {
+            override fun onLocationDetailsScreen(singleLocation: SingleLocation) {
+                navigator().showLocationDetails(singleLocation)
+            }
+        })
         binding.listLocationsRecyclerview.layoutManager = GridLayoutManager(context, 2)
         binding.listLocationsRecyclerview.adapter = adapter
 
         viewModel.locationsList.observe(viewLifecycleOwner, Observer {
             adapter.locations = viewModel.locationsList.value!!.results
         })
-        
+
         return binding.root
     }
 

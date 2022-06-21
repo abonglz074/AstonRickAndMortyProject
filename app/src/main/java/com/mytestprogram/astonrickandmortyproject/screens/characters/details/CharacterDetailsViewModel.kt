@@ -1,4 +1,4 @@
-package com.mytestprogram.astonrickandmortyproject.screens.characters
+package com.mytestprogram.astonrickandmortyproject.screens.characters.details
 
 import android.util.Log
 import androidx.lifecycle.LiveData

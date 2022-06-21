@@ -1,4 +1,4 @@
-package com.mytestprogram.astonrickandmortyproject.screens.episodes
+package com.mytestprogram.astonrickandmortyproject.screens.episodes.lists
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

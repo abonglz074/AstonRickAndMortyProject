@@ -1,7 +1,7 @@
 package com.mytestprogram.astonrickandmortyproject
 
-import android.content.Context
 import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.SingleCharacter
+import com.mytestprogram.astonrickandmortyproject.data.models.alllocationsresponse.SingleLocation
 
 interface NavigatorInterface {
 
@@ -11,9 +11,12 @@ interface NavigatorInterface {
 
     fun showCharacterDetails(singleCharacter: SingleCharacter)
 
-    fun showLocationDetails()
+    fun showLocationDetails(singleLocation: SingleLocation)
 
     fun showEpisodeDetails()
+
+    fun goBack()
+
 
 
 }

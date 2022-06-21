@@ -1,4 +1,4 @@
-package com.mytestprogram.astonrickandmortyproject.screens.characters
+package com.mytestprogram.astonrickandmortyproject.screens.characters.lists
 
 import android.os.Bundle
 import android.view.LayoutInflater

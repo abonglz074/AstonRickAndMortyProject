@@ -1,4 +1,4 @@
-package com.mytestprogram.astonrickandmortyproject.screens.characters
+package com.mytestprogram.astonrickandmortyproject.screens.characters.details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.mytestprogram.astonrickandmortyproject.databinding.FragmentCharactersDetailsBinding
 
@@ -27,7 +28,7 @@ class CharacterDetailsFragment: Fragment() {
     ): View? {
         binding = FragmentCharactersDetailsBinding.inflate(layoutInflater, container, false)
 
-        viewModel.characterDetails.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+        viewModel.characterDetails.observe(viewLifecycleOwner, Observer {
             binding.characterDetailsName.text = viewModel.characterDetails.value!!.name
             binding.characterDetailsGender.text = viewModel.characterDetails.value!!.gender
             binding.characterDetailsLocation.text = viewModel.characterDetails.value!!.location.name
@@ -38,6 +39,8 @@ class CharacterDetailsFragment: Fragment() {
                 .load(viewModel.characterDetails.value!!.image)
                 .into(binding.characterDetailsImageview)
         })
+
+
         return binding.root
     }
 
