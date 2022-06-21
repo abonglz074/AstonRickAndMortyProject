@@ -1,21 +1,24 @@
 package com.mytestprogram.astonrickandmortyproject.screens.characters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.SingleCharacter
 import com.mytestprogram.astonrickandmortyproject.databinding.CharactersListRecyclerviewItemBinding
 
-class ListCharactersAdapter:
-    RecyclerView.Adapter<ListCharactersAdapter.ListCharactersViewHolder>() {
+class ListCharactersAdapter(
+    private val actionListener: ListCharactersActionListener
+) :
+    RecyclerView.Adapter<ListCharactersAdapter.ListCharactersViewHolder>(), View.OnClickListener {
 
     var characters: List<SingleCharacter> = emptyList()
+        set(newValue) {
+            field = newValue
+            notifyDataSetChanged()
+        }
 
-    set(newValue){
-        field = newValue
-        notifyDataSetChanged()
-    }
 
 
 //
@@ -34,18 +37,18 @@ class ListCharactersAdapter:
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListCharactersViewHolder {
-        return ListCharactersViewHolder(
-            CharactersListRecyclerviewItemBinding.inflate(
-                LayoutInflater.from(
-                    parent.context
-                ), parent, false
-            )
-        )
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = CharactersListRecyclerviewItemBinding.inflate(inflater, parent, false)
+
+        binding.root.setOnClickListener(this)
+
+        return ListCharactersViewHolder(binding)
 
     }
 
     override fun onBindViewHolder(holder: ListCharactersViewHolder, position: Int) {
         val singleCharacter = characters[position]
+        holder.itemView.tag = singleCharacter
         Glide.with(holder.itemView)
             .load(singleCharacter.image)
             .into(holder.binding.characterImageView)
@@ -62,4 +65,11 @@ class ListCharactersAdapter:
 
     class ListCharactersViewHolder(var binding: CharactersListRecyclerviewItemBinding) :
         RecyclerView.ViewHolder(binding.root)
+
+    override fun onClick(v: View) {
+        val singleCharacter = v.tag as SingleCharacter
+        actionListener.onCharacterDetailsScreen(singleCharacter)
+
+
+    }
 }

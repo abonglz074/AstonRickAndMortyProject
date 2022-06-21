@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.SingleCharacter
 import com.mytestprogram.astonrickandmortyproject.databinding.FragmentListCharactersBinding
+import com.mytestprogram.astonrickandmortyproject.screens.navigator
 
 class ListCharactersFragment : Fragment() {
 
@@ -24,7 +26,11 @@ class ListCharactersFragment : Fragment() {
     ): View? {
         binding = FragmentListCharactersBinding.inflate(inflater, container, false)
 
-        adapter = ListCharactersAdapter()
+        adapter = ListCharactersAdapter(object : ListCharactersActionListener {
+            override fun onCharacterDetailsScreen(singleCharacter: SingleCharacter) {
+                navigator().showCharacterDetails(singleCharacter)
+            }
+        })
 
         binding.charactersListRecyclerview.layoutManager = GridLayoutManager(context, 2)
         binding.charactersListRecyclerview.adapter = adapter

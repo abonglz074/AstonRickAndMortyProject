@@ -2,8 +2,10 @@ package com.mytestprogram.astonrickandmortyproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.SingleCharacter
 import com.mytestprogram.astonrickandmortyproject.databinding.ActivityMainBinding
 import com.mytestprogram.astonrickandmortyproject.screens.characters.CharacterDetailsFragment
+import com.mytestprogram.astonrickandmortyproject.screens.characters.ListCharactersFragment
 import com.mytestprogram.astonrickandmortyproject.screens.episodes.ListEpisodesFragment
 import com.mytestprogram.astonrickandmortyproject.screens.locations.ListLocationsFragment
 
@@ -18,15 +20,15 @@ class MainActivity : AppCompatActivity(), NavigatorInterface {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, ListEpisodesFragment())
+                .add(R.id.fragment_container, ListCharactersFragment())
                 .commit()
         }
 
     }
 
-    override fun showCharacterDetails(characterId: Int) {
+    override fun showCharacterDetails(singleCharacter: SingleCharacter) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, CharacterDetailsFragment.newInstance(characterId))
+            .replace(R.id.fragment_container, CharacterDetailsFragment.newInstance(singleCharacter.id))
             .addToBackStack(null)
             .commit()
     }

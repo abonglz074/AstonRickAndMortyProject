@@ -1,6 +1,7 @@
 package com.mytestprogram.astonrickandmortyproject
 
 import android.content.Context
+import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.SingleCharacter
 
 interface NavigatorInterface {
 
@@ -8,7 +9,7 @@ interface NavigatorInterface {
 
     fun showEpisodesList()
 
-    fun showCharacterDetails(characterId: Int)
+    fun showCharacterDetails(singleCharacter: SingleCharacter)
 
     fun showLocationDetails()
 

@@ -17,6 +17,7 @@ class ListLocationsAdapter:
         }
 
 
+
 //
 //    private val diffCallback = object : DiffUtil.ItemCallback<GetCharacterByIdResponse>() {
 //
