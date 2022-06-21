@@ -1,6 +1,7 @@
 package com.mytestprogram.astonrickandmortyproject
 
 import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.SingleCharacter
+import com.mytestprogram.astonrickandmortyproject.data.models.allepisodesresponse.SingleEpisode
 import com.mytestprogram.astonrickandmortyproject.data.models.alllocationsresponse.SingleLocation
 
 interface NavigatorInterface {
@@ -13,7 +14,7 @@ interface NavigatorInterface {
 
     fun showLocationDetails(singleLocation: SingleLocation)
 
-    fun showEpisodeDetails()
+    fun showEpisodeDetails(singleEpisode: SingleEpisode)
 
     fun goBack()
 

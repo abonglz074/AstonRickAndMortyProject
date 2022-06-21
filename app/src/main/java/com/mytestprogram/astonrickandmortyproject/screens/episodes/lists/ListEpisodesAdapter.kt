@@ -1,12 +1,15 @@
 package com.mytestprogram.astonrickandmortyproject.screens.episodes.lists
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mytestprogram.astonrickandmortyproject.data.models.allepisodesresponse.SingleEpisode
 import com.mytestprogram.astonrickandmortyproject.databinding.CharacterDetailsRecyclerviewEpisodesItemBinding
 
-class ListEpisodesAdapter: RecyclerView.Adapter<ListEpisodesAdapter.ListEpisodesViewHolder>() {
+class ListEpisodesAdapter(
+    private val actionListener: ListEpisodesActionListener
+): RecyclerView.Adapter<ListEpisodesAdapter.ListEpisodesViewHolder>(), View.OnClickListener {
 
     var episodes: List<SingleEpisode> = emptyList()
 
@@ -32,18 +35,17 @@ class ListEpisodesAdapter: RecyclerView.Adapter<ListEpisodesAdapter.ListEpisodes
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListEpisodesViewHolder {
-        return ListEpisodesViewHolder(
-            CharacterDetailsRecyclerviewEpisodesItemBinding.inflate(
-                LayoutInflater.from(
-                    parent.context
-                ), parent, false
-            )
-        )
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = CharacterDetailsRecyclerviewEpisodesItemBinding.inflate(inflater, parent, false)
+
+        binding.root.setOnClickListener(this)
+        return ListEpisodesViewHolder(binding)
 
     }
 
     override fun onBindViewHolder(holder: ListEpisodesViewHolder, position: Int) {
         val singleEpisode = episodes[position]
+        holder.itemView.tag = singleEpisode
         with(holder.binding) {
             episodeName.text = singleEpisode.name
             episodeNumber.text = singleEpisode.episode
@@ -53,6 +55,10 @@ class ListEpisodesAdapter: RecyclerView.Adapter<ListEpisodesAdapter.ListEpisodes
 
     override fun getItemCount(): Int = episodes.size
 
+    override fun onClick(v: View) {
+        val singleEpisode = v.tag as SingleEpisode
+        actionListener.showEpisodeDetailsScreen(singleEpisode)
+    }
 
     class ListEpisodesViewHolder(var binding: CharacterDetailsRecyclerviewEpisodesItemBinding) :
         RecyclerView.ViewHolder(binding.root)

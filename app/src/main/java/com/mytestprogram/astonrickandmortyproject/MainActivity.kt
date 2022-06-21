@@ -6,10 +6,13 @@ import android.view.View
 import androidx.core.view.children
 import com.google.android.material.navigation.NavigationBarView
 import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.SingleCharacter
+import com.mytestprogram.astonrickandmortyproject.data.models.allepisodesresponse.SingleEpisode
 import com.mytestprogram.astonrickandmortyproject.data.models.alllocationsresponse.SingleLocation
 import com.mytestprogram.astonrickandmortyproject.databinding.ActivityMainBinding
 import com.mytestprogram.astonrickandmortyproject.screens.characters.details.CharacterDetailsFragment
 import com.mytestprogram.astonrickandmortyproject.screens.characters.lists.ListCharactersFragment
+import com.mytestprogram.astonrickandmortyproject.screens.episodes.details.EpisodeDetailsFragment
+import com.mytestprogram.astonrickandmortyproject.screens.episodes.lists.ListEpisodesFragment
 import com.mytestprogram.astonrickandmortyproject.screens.locations.details.LocationDetailsFragment
 import com.mytestprogram.astonrickandmortyproject.screens.locations.lists.ListLocationsFragment
 
@@ -24,7 +27,7 @@ class MainActivity : AppCompatActivity(), NavigatorInterface {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, ListLocationsFragment())
+                .add(R.id.fragment_container, ListEpisodesFragment())
                 .commit()
         }
 
@@ -56,8 +59,11 @@ class MainActivity : AppCompatActivity(), NavigatorInterface {
         binding.bottomNavigation.visibility = View.GONE
     }
 
-    override fun showEpisodeDetails() {
-        TODO("Not yet implemented")
+    override fun showEpisodeDetails(singleEpisode: SingleEpisode) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, EpisodeDetailsFragment.newInstance(singleEpisode.id))
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun goBack() {
