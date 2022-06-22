@@ -16,8 +16,8 @@ class CharacterDetailsViewModel: ViewModel() {
     private val _characterDetails = MutableLiveData<SingleCharacter>()
     var characterDetails: LiveData<SingleCharacter> = _characterDetails
 
-    private val _episodeDetails = MutableLiveData<EpisodesListResponse>()
-    var episodeDetails: LiveData<EpisodesListResponse> = _episodeDetails
+    private val _episodeDetails = MutableLiveData<List<SingleEpisode>>()
+    var episodeDetails: LiveData<List<SingleEpisode>> = _episodeDetails
 
 
     fun loadCharacterDetailsData(characterId: Int) = viewModelScope.launch {
@@ -30,39 +30,35 @@ class CharacterDetailsViewModel: ViewModel() {
         }
     }
 
-    fun loadAllEpisodes() = viewModelScope.launch {
-        NetworkInstance.retrofit.getAllEpisodes().let { response ->
-            if(response.isSuccessful) {
+//    fun loadAllEpisodes() = viewModelScope.launch {
+//        NetworkInstance.retrofit.getAllEpisodes().let { response ->
+//            if(response.isSuccessful) {
+//                _episodeDetails.postValue(response.body())
+//            } else {
+//                Log.d("CharacterDetailFragment", "Loading Error: ${response.code()}")
+//            }
+//        }
+//    }
+//
+//    fun loadEpisodesById(episodeId: Int) = viewModelScope.launch {
+//        NetworkInstance.retrofit.getEpisodeById(episodeId).let { response ->
+//            if(response.isSuccessful) {
+//                _episodeDetails.postValue(response.body())
+//            } else {
+//                Log.d("CharacterDetailFragment", "Loading Error: ${response.code()}")
+//            }
+//        }
+//    }
+
+    fun loadMultipleEpisodes(episodeId: List<Int>) = viewModelScope.launch {
+        NetworkInstance.retrofit.getMultipleEpisodesById(episodeId).let { response ->
+            if (response.isSuccessful) {
                 _episodeDetails.postValue(response.body())
             } else {
                 Log.d("CharacterDetailFragment", "Loading Error: ${response.code()}")
             }
         }
     }
-
-//    fun loadEpisodesById(episodeId: Int) = viewModelScope.launch {
-//        NetworkInstance.retrofit.getEpisodeById(episodeId).let { response ->
-//            if(response.isSuccessful) {
-//                _characterDetails.value!!.episode.forEach { str ->
-//                    val episodeId = str.substring(40).toInt()
-//                    _episodeDetails.postValue(response.body())
-//                }
-//                _episodeDetails.postValue(response.body())
-//            } else {
-//                Log.d("CharacterDetailFragment", "Loading Error: ${response.code()}")
-//            }
-//        }
-//    }
-
-//    fun loadMultipleEpisodes(episodeId: List<Int>) = viewModelScope.launch {
-//        NetworkInstance.retrofit.getMultipleEpisodesById(episodeId).let { response ->
-//            if (response.isSuccessful) {
-//                _episodeDetails.postValue(response.body())
-//            } else {
-//                Log.d("CharacterDetailFragment", "Loading Error: ${response.code()}")
-//            }
-//        }
-//    }
 
 
 

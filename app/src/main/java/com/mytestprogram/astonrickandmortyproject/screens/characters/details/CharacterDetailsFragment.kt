@@ -24,7 +24,7 @@ class CharacterDetailsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.loadCharacterDetailsData(requireArguments().getInt(ARG_CHARACTER_ID))
-        viewModel.loadAllEpisodes()
+//        viewModel.loadAllEpisodes()
     }
 
     override fun onCreateView(
@@ -65,10 +65,18 @@ class CharacterDetailsFragment : Fragment() {
                 navigator().showLocationDetails(locationId)
             }
 
+            val episodesUrlsList: List<String> = viewModel.characterDetails.value!!.episode
+            val episodeIds = mutableListOf<Int>()
+            episodesUrlsList.forEach { i ->
+                episodeIds.add(i.substring(40).toInt())
+            }
+            viewModel.loadMultipleEpisodes(episodeIds)
 
             viewModel.episodeDetails.observe(viewLifecycleOwner, Observer {
-                adapter.episodes = viewModel.episodeDetails.value!!.results
+                adapter.episodes = viewModel.episodeDetails.value!!
             })
+
+
         })
 
         return binding.root
