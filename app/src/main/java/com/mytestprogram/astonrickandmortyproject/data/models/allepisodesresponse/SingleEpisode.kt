@@ -2,7 +2,7 @@ package com.mytestprogram.astonrickandmortyproject.data.models.allepisodesrespon
 
 data class SingleEpisode(
     val air_date: String,
-    val characters: List<Any>,
+    val characters: List<String>,
     val created: String,
     val episode: String,
     var id: Int,

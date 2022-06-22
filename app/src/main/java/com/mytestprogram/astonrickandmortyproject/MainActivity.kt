@@ -7,6 +7,7 @@ import com.mytestprogram.astonrickandmortyproject.databinding.ActivityMainBindin
 import com.mytestprogram.astonrickandmortyproject.screens.characters.details.CharacterDetailsFragment
 import com.mytestprogram.astonrickandmortyproject.screens.characters.lists.ListCharactersFragment
 import com.mytestprogram.astonrickandmortyproject.screens.episodes.details.EpisodeDetailsFragment
+import com.mytestprogram.astonrickandmortyproject.screens.episodes.lists.ListEpisodesFragment
 import com.mytestprogram.astonrickandmortyproject.screens.locations.details.LocationDetailsFragment
 
 class MainActivity : AppCompatActivity(), NavigatorInterface {
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity(), NavigatorInterface {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, ListCharactersFragment())
+                .add(R.id.fragment_container, ListEpisodesFragment())
                 .commit()
         }
         binding.bottomNavigation.visibility = View.VISIBLE

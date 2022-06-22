@@ -16,22 +16,25 @@ interface RetrofitService {
     suspend fun getAllCharacters(): Response<CharactersList>
 
     @GET("character/{character-id}")
-    suspend fun getCharacterById(@Path("character-id") characterId: kotlin.Int): Response<SingleCharacter>
+    suspend fun getCharacterById(@Path("character-id") characterId: Int): Response<SingleCharacter>
+
+    @GET("character/{character-id}")
+    suspend fun getMultipleCharactersById(@Path("character-id") characterIds: List<Int>): Response<List<SingleCharacter>>
 
     @GET("location")
     suspend fun getAllLocations(): Response<LocationsListResponse>
 
     @GET("location/{location-id}")
-    suspend fun getLocationById(@Path("location-id") locationId: kotlin.Int): Response<SingleLocation>
+    suspend fun getLocationById(@Path("location-id") locationId: Int): Response<SingleLocation>
 
     @GET("episode")
     suspend fun getAllEpisodes(): Response<EpisodesListResponse>
 
     @GET("episode/{episode-id}")
-    suspend fun getEpisodeById(@Path("episode-id") episodeId: kotlin.Int): Response<SingleEpisode>
+    suspend fun getEpisodeById(@Path("episode-id") episodeId: Int): Response<SingleEpisode>
 
     @GET("episode/{episode-id}")
-    suspend fun getMultipleEpisodesById(@Path("episode-id") episodesId: List<kotlin.Int>): Response<List<SingleEpisode>>
+    suspend fun getMultipleEpisodesById(@Path("episode-id") episodesId: List<Int>): Response<List<SingleEpisode>>
 
 
 

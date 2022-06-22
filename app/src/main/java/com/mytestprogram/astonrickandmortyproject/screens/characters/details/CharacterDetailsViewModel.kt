@@ -30,26 +30,6 @@ class CharacterDetailsViewModel: ViewModel() {
         }
     }
 
-//    fun loadAllEpisodes() = viewModelScope.launch {
-//        NetworkInstance.retrofit.getAllEpisodes().let { response ->
-//            if(response.isSuccessful) {
-//                _episodeDetails.postValue(response.body())
-//            } else {
-//                Log.d("CharacterDetailFragment", "Loading Error: ${response.code()}")
-//            }
-//        }
-//    }
-//
-//    fun loadEpisodesById(episodeId: Int) = viewModelScope.launch {
-//        NetworkInstance.retrofit.getEpisodeById(episodeId).let { response ->
-//            if(response.isSuccessful) {
-//                _episodeDetails.postValue(response.body())
-//            } else {
-//                Log.d("CharacterDetailFragment", "Loading Error: ${response.code()}")
-//            }
-//        }
-//    }
-
     fun loadMultipleEpisodes(episodeId: List<Int>) = viewModelScope.launch {
         NetworkInstance.retrofit.getMultipleEpisodesById(episodeId).let { response ->
             if (response.isSuccessful) {
