@@ -14,6 +14,8 @@ interface NavigatorInterface {
 
     fun showLocationDetails(singleLocation: SingleLocation)
 
+    fun showLocationDetailsById(locationId: Int)
+
     fun showEpisodeDetails(singleEpisode: SingleEpisode)
 
     fun goBack()

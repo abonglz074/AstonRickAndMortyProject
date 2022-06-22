@@ -64,6 +64,13 @@ class MainActivity : AppCompatActivity(), NavigatorInterface {
         binding.bottomNavigation.visibility = View.GONE
     }
 
+    override fun showLocationDetailsById(locationId: Int) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, LocationDetailsFragment.newInstance(locationId))
+            .addToBackStack(null)
+            .commit()
+    }
+
     override fun goBack() {
         onBackPressed()
     }

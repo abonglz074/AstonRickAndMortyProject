@@ -1,6 +1,6 @@
 package com.mytestprogram.astonrickandmortyproject.data.network
 
-import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.CharactersListResponse
+import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.CharactersList
 import com.mytestprogram.astonrickandmortyproject.data.models.allepisodesresponse.EpisodesListResponse
 import com.mytestprogram.astonrickandmortyproject.data.models.alllocationsresponse.LocationsListResponse
 import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.SingleCharacter
@@ -13,7 +13,7 @@ import retrofit2.http.Path
 interface RetrofitService {
 
     @GET("character")
-    suspend fun getAllCharacters(): Response<CharactersListResponse>
+    suspend fun getAllCharacters(): Response<CharactersList>
 
     @GET("character/{character-id}")
     suspend fun getCharacterById(@Path("character-id") characterId: Int): Response<SingleCharacter>

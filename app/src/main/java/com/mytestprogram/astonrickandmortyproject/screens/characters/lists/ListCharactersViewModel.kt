@@ -5,15 +5,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.CharactersListResponse
+import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.CharactersList
 import com.mytestprogram.astonrickandmortyproject.data.network.NetworkInstance
 import kotlinx.coroutines.launch
 
 class ListCharactersViewModel: ViewModel() {
 
 
-    private val _charactersList = MutableLiveData<CharactersListResponse>()
-    val character: LiveData<CharactersListResponse> = _charactersList
+    private val _charactersList = MutableLiveData<CharactersList>()
+    val character: LiveData<CharactersList> = _charactersList
 
     init {
         getAllCharacters()

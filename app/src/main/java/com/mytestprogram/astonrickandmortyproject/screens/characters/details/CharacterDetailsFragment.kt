@@ -56,6 +56,15 @@ class CharacterDetailsFragment : Fragment() {
                 .load(viewModel.characterDetails.value!!.image)
                 .into(binding.characterDetailsImageview)
 
+            val locationUrl = viewModel.characterDetails.value!!.location.url
+            val locationId = locationUrl.substring(41).toInt()
+            binding.characterDetailsLocation.setOnClickListener {
+                navigator().showLocationDetailsById(locationId)
+            }
+            binding.characterDetailsOrigin.setOnClickListener {
+                navigator().showLocationDetailsById(locationId)
+            }
+
 
             viewModel.episodeDetails.observe(viewLifecycleOwner, Observer {
                 adapter.episodes = viewModel.episodeDetails.value!!.results

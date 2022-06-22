@@ -33,8 +33,6 @@ class LocationDetailsFragment: Fragment() {
             binding.locationName.text = viewModel.locationDetails.value!!.name
             binding.locationDimension.text = viewModel.locationDetails.value!!.dimension
             binding.locationsType.text = viewModel.locationDetails.value!!.type
-
-
         })
         return binding.root
     }
