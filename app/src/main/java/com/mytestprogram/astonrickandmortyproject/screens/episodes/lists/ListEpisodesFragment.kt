@@ -27,8 +27,8 @@ class ListEpisodesFragment : Fragment() {
         binding = FragmentListEpisodesBinding.inflate(inflater, container, false)
 
         adapter = ListEpisodesAdapter(object : ListEpisodesActionListener {
-            override fun showEpisodeDetailsScreen(singleEpisode: SingleEpisode) {
-                navigator().showEpisodeDetails(singleEpisode)
+            override fun showEpisodeDetailsScreen(episodeId: Int) {
+                navigator().showEpisodeDetails(episodeId)
             }
         })
         binding.listEpisodesRecyclerviewItem.layoutManager = GridLayoutManager(context, 2)

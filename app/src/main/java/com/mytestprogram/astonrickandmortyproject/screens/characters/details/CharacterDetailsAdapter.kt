@@ -32,7 +32,8 @@ class CharacterDetailsAdapter(
 
     override fun onClick(v: View) {
         val singleEpisode = v.tag as SingleEpisode
-        actionListener.showEpisodeDetailsScreen(singleEpisode)
+        val episodeId = singleEpisode.id
+        actionListener.showEpisodeDetailsScreen(episodeId)
     }
 
     override fun onBindViewHolder(holder: CharacterDetailsViewHolder, position: Int) {

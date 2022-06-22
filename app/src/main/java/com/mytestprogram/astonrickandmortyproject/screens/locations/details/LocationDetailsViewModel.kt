@@ -14,7 +14,7 @@ class LocationDetailsViewModel: ViewModel() {
     private val _locationDetails = MutableLiveData<SingleLocation>()
     val locationDetails: LiveData<SingleLocation> = _locationDetails
 
-    fun loadLocationDetailsData(locationId: Int) = viewModelScope.launch {
+    fun loadLocationDetailsData(locationId: kotlin.Int) = viewModelScope.launch {
         NetworkInstance.retrofit.getLocationById(locationId).let { response ->
             if (response.isSuccessful) {
                 _locationDetails.postValue(response.body())

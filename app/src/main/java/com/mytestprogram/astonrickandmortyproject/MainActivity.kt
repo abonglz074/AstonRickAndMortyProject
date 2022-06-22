@@ -3,9 +3,6 @@ package com.mytestprogram.astonrickandmortyproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse.SingleCharacter
-import com.mytestprogram.astonrickandmortyproject.data.models.allepisodesresponse.SingleEpisode
-import com.mytestprogram.astonrickandmortyproject.data.models.alllocationsresponse.SingleLocation
 import com.mytestprogram.astonrickandmortyproject.databinding.ActivityMainBinding
 import com.mytestprogram.astonrickandmortyproject.screens.characters.details.CharacterDetailsFragment
 import com.mytestprogram.astonrickandmortyproject.screens.characters.lists.ListCharactersFragment
@@ -31,11 +28,12 @@ class MainActivity : AppCompatActivity(), NavigatorInterface {
     }
 
 
-    override fun showCharacterDetails(singleCharacter: SingleCharacter) {
+    override fun showCharacterDetails(characterId: Int) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, CharacterDetailsFragment.newInstance(singleCharacter.id))
+            .replace(R.id.fragment_container, CharacterDetailsFragment.newInstance(characterId))
             .addToBackStack(null)
             .commit()
+
         binding.bottomNavigation.visibility = View.GONE
     }
 
@@ -48,23 +46,16 @@ class MainActivity : AppCompatActivity(), NavigatorInterface {
 //            .replace(R.id.fragment_container, )
     }
 
-    override fun showLocationDetails(singleLocation: SingleLocation) {
+
+    override fun showEpisodeDetails(episodeId: Int) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, LocationDetailsFragment.newInstance(singleLocation.id))
+            .replace(R.id.fragment_container, EpisodeDetailsFragment.newInstance(episodeId))
             .addToBackStack(null)
             .commit()
         binding.bottomNavigation.visibility = View.GONE
     }
 
-    override fun showEpisodeDetails(singleEpisode: SingleEpisode) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, EpisodeDetailsFragment.newInstance(singleEpisode.id))
-            .addToBackStack(null)
-            .commit()
-        binding.bottomNavigation.visibility = View.GONE
-    }
-
-    override fun showLocationDetailsById(locationId: Int) {
+    override fun showLocationDetails(locationId: Int) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, LocationDetailsFragment.newInstance(locationId))
             .addToBackStack(null)

@@ -1,5 +1,7 @@
 package com.mytestprogram.astonrickandmortyproject.data.models.alllocationsresponse
 
+import kotlin.Int
+
 data class SingleLocation(
     val created: String,
     val dimension: String,

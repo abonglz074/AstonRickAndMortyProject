@@ -4,6 +4,6 @@ import com.mytestprogram.astonrickandmortyproject.data.models.allcharactersrespo
 
 interface ListCharactersActionListener {
 
-    fun onCharacterDetailsScreen(singleCharacter: SingleCharacter)
+    fun onCharacterDetailsScreen(characterId: Int)
 
 }

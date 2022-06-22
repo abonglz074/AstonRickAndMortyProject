@@ -68,7 +68,8 @@ class ListCharactersAdapter(
 
     override fun onClick(v: View) {
         val singleCharacter = v.tag as SingleCharacter
-        actionListener.onCharacterDetailsScreen(singleCharacter)
+        val singleCharacterId = singleCharacter.id
+        actionListener.onCharacterDetailsScreen(singleCharacterId)
 
 
     }

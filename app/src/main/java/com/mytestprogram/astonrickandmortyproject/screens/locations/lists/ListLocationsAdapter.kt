@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mytestprogram.astonrickandmortyproject.data.models.alllocationsresponse.SingleLocation
 import com.mytestprogram.astonrickandmortyproject.databinding.LocationsRecyclerviewItemBinding
-import com.mytestprogram.astonrickandmortyproject.screens.characters.lists.ListCharactersActionListener
 
 class ListLocationsAdapter(
     private val actionListener: ListLocationsActionListener
@@ -34,7 +33,7 @@ class ListLocationsAdapter(
 //    private val differ = AsyncListDiffer(this, diffCallback)
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListLocationsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: kotlin.Int): ListLocationsViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = LocationsRecyclerviewItemBinding.inflate(inflater, parent, false)
 
@@ -44,7 +43,7 @@ class ListLocationsAdapter(
 
     }
 
-    override fun onBindViewHolder(holder: ListLocationsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ListLocationsViewHolder, position: kotlin.Int) {
         val singleLocation = locations[position]
         holder.itemView.tag = singleLocation
         with(holder.binding) {
@@ -56,10 +55,11 @@ class ListLocationsAdapter(
 
     override fun onClick(v: View) {
         val singleLocation = v.tag as SingleLocation
-        actionListener.onLocationDetailsScreen(singleLocation)
+        val locationId = singleLocation.id
+        actionListener.onLocationDetailsScreen(locationId)
     }
 
-    override fun getItemCount(): Int = locations.size
+    override fun getItemCount(): kotlin.Int = locations.size
 
 
     class ListLocationsViewHolder(var binding: LocationsRecyclerviewItemBinding) :

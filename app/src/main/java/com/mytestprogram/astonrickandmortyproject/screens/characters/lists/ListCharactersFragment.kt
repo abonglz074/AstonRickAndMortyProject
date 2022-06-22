@@ -27,8 +27,8 @@ class ListCharactersFragment : Fragment() {
         binding = FragmentListCharactersBinding.inflate(inflater, container, false)
 
         adapter = ListCharactersAdapter(object : ListCharactersActionListener {
-            override fun onCharacterDetailsScreen(singleCharacter: SingleCharacter) {
-                navigator().showCharacterDetails(singleCharacter)
+            override fun onCharacterDetailsScreen(characterId: Int) {
+                navigator().showCharacterDetails(characterId)
             }
         })
 

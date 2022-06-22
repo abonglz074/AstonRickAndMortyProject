@@ -36,8 +36,8 @@ class CharacterDetailsFragment : Fragment() {
 
 
         adapter = CharacterDetailsAdapter(object : ListEpisodesActionListener {
-            override fun showEpisodeDetailsScreen(singleEpisode: SingleEpisode) {
-                navigator().showEpisodeDetails(singleEpisode)
+            override fun showEpisodeDetailsScreen(episodeId: Int) {
+                navigator().showEpisodeDetails(episodeId)
             }
         })
 
@@ -59,10 +59,10 @@ class CharacterDetailsFragment : Fragment() {
             val locationUrl = viewModel.characterDetails.value!!.location.url
             val locationId = locationUrl.substring(41).toInt()
             binding.characterDetailsLocation.setOnClickListener {
-                navigator().showLocationDetailsById(locationId)
+                navigator().showLocationDetails(locationId)
             }
             binding.characterDetailsOrigin.setOnClickListener {
-                navigator().showLocationDetailsById(locationId)
+                navigator().showLocationDetails(locationId)
             }
 
 

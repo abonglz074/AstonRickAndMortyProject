@@ -4,5 +4,5 @@ import com.mytestprogram.astonrickandmortyproject.data.models.allepisodesrespons
 
 interface ListEpisodesActionListener {
 
-    fun showEpisodeDetailsScreen(singleEpisode: SingleEpisode)
+    fun showEpisodeDetailsScreen(episodeId: Int)
 }

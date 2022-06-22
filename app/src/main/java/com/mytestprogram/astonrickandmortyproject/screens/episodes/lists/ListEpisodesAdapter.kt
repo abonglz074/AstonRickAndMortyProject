@@ -57,7 +57,8 @@ class ListEpisodesAdapter(
 
     override fun onClick(v: View) {
         val singleEpisode = v.tag as SingleEpisode
-        actionListener.showEpisodeDetailsScreen(singleEpisode)
+        val episodeId = singleEpisode.id
+        actionListener.showEpisodeDetailsScreen(episodeId)
     }
 
     class ListEpisodesViewHolder(var binding: CharacterDetailsRecyclerviewEpisodesItemBinding) :
