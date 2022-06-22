@@ -5,7 +5,7 @@ data class SingleEpisode(
     val characters: List<Any>,
     val created: String,
     val episode: String,
-    val id: Int,
+    var id: Int,
     val name: String,
     val url: String
 )

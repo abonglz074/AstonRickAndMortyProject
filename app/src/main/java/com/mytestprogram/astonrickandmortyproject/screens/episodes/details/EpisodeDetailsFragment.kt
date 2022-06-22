@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.mytestprogram.astonrickandmortyproject.databinding.FragmentEpisodesDetailsBinding
+import com.mytestprogram.astonrickandmortyproject.screens.locations.details.LocationDetailsFragment
 
 class EpisodeDetailsFragment : Fragment() {
 
@@ -35,12 +37,14 @@ class EpisodeDetailsFragment : Fragment() {
     }
 
     companion object {
+
         private const val ARG_EPISODE_ID = "ARG_EPISODE_ID"
+
         fun newInstance(id: Int): EpisodeDetailsFragment {
             val args = Bundle()
-            ARG_EPISODE_ID to id
+
             val fragment = EpisodeDetailsFragment()
-            fragment.arguments = args
+            fragment.arguments = bundleOf(ARG_EPISODE_ID to id)
             return fragment
         }
     }

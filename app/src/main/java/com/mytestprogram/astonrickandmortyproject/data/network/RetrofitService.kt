@@ -30,5 +30,10 @@ interface RetrofitService {
     @GET("episode/{episode-id}")
     suspend fun getEpisodeById(@Path("episode-id") episodeId: Int): Response<SingleEpisode>
 
+    @GET("episode/{episode-id}")
+    suspend fun getMultipleEpisodesById(@Path("episode-id") episodesId: List<Int>): Response<List<SingleEpisode>>
+
+
+
 
 }

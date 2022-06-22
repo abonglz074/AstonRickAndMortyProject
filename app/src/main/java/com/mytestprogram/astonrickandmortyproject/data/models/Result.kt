@@ -1,8 +1,6 @@
-package com.mytestprogram.astonrickandmortyproject.data.models.allcharactersresponse
+package com.mytestprogram.astonrickandmortyproject.data.models
 
-import com.mytestprogram.astonrickandmortyproject.data.models.allepisodesresponse.SingleEpisode
-
-data class SingleCharacter(
+data class Result(
     val created: String,
     val episode: List<String>,
     val gender: String,
