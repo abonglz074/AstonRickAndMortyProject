@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1505" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/drawable/ic_episodes.xml" value="0.1505" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/drawable/ic_locations.xml" value="0.1505" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/drawable/ic_rick_mort.xml" value="0.1505" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/drawable/splash_image.xml" value="0.1505" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/character_details_recyclerview_episodes.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/AstonRickAndMortyProject/app/src/main/res/layout/character_details_recyclerview_episodes_item.xml" value="0.20416666666666666" />
