@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import com.mytestprogram.astonrickandmortyproject.MainActivity
 import com.mytestprogram.astonrickandmortyproject.databinding.FragmentListLocationsBinding
 import com.mytestprogram.astonrickandmortyproject.databinding.FragmentLocationDetailsBinding
 import com.mytestprogram.astonrickandmortyproject.screens.characters.details.CharacterDetailsFragment
@@ -32,6 +33,7 @@ class LocationDetailsFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentLocationDetailsBinding.inflate(layoutInflater, container, false)
+        (requireActivity() as MainActivity).bottomNavigationGone()
 
 
         adapter = LocationDetailsAdapter(object : ListCharactersActionListener{
@@ -39,6 +41,7 @@ class LocationDetailsFragment: Fragment() {
                 navigator().showCharacterDetails(characterId)
             }
         })
+
         binding.locationDetailsCharactersRecyclerview.layoutManager = GridLayoutManager(context, 2)
         binding.locationDetailsCharactersRecyclerview.adapter = adapter
 

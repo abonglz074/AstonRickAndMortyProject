@@ -2,15 +2,17 @@ package com.mytestprogram.astonrickandmortyproject
 
 interface NavigatorInterface {
 
+    fun showCharactersList()
+
     fun showLocationsList()
 
     fun showEpisodesList()
 
-    fun showCharacterDetails(characterId: kotlin.Int)
+    fun showCharacterDetails(characterId: Int)
 
-    fun showLocationDetails(locationId: kotlin.Int)
+    fun showLocationDetails(locationId: Int)
 
-    fun showEpisodeDetails(episodeId: kotlin.Int)
+    fun showEpisodeDetails(episodeId: Int)
 
     fun goBack()
 

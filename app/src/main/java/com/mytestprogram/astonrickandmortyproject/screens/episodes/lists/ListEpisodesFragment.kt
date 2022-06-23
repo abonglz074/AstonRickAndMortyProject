@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import com.mytestprogram.astonrickandmortyproject.MainActivity
 import com.mytestprogram.astonrickandmortyproject.data.models.allepisodesresponse.SingleEpisode
 import com.mytestprogram.astonrickandmortyproject.databinding.FragmentListEpisodesBinding
 import com.mytestprogram.astonrickandmortyproject.screens.navigator
@@ -25,6 +26,7 @@ class ListEpisodesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentListEpisodesBinding.inflate(inflater, container, false)
+        (requireActivity() as MainActivity).bottomNavigationVisible()
 
         adapter = ListEpisodesAdapter(object : ListEpisodesActionListener {
             override fun showEpisodeDetailsScreen(episodeId: Int) {

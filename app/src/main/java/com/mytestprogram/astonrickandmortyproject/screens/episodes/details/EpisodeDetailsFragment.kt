@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import com.mytestprogram.astonrickandmortyproject.MainActivity
 import com.mytestprogram.astonrickandmortyproject.databinding.FragmentEpisodesDetailsBinding
 import com.mytestprogram.astonrickandmortyproject.screens.characters.lists.ListCharactersActionListener
 import com.mytestprogram.astonrickandmortyproject.screens.locations.details.LocationDetailsFragment
@@ -31,6 +32,7 @@ class EpisodeDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentEpisodesDetailsBinding.inflate(layoutInflater, container, false)
+        (requireActivity() as MainActivity).bottomNavigationGone()
 
         adapter = EpisodeDetailsAdapter(object: ListCharactersActionListener{
             override fun onCharacterDetailsScreen(characterId: Int) {

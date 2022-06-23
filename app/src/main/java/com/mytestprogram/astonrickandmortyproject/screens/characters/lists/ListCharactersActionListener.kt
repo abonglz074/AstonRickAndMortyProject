@@ -6,4 +6,5 @@ interface ListCharactersActionListener {
 
     fun onCharacterDetailsScreen(characterId: Int)
 
+
 }

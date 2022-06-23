@@ -3,6 +3,9 @@ package com.mytestprogram.astonrickandmortyproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.children
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 import com.mytestprogram.astonrickandmortyproject.databinding.ActivityMainBinding
 import com.mytestprogram.astonrickandmortyproject.screens.characters.details.CharacterDetailsFragment
 import com.mytestprogram.astonrickandmortyproject.screens.characters.lists.ListCharactersFragment
@@ -20,15 +23,45 @@ class MainActivity : AppCompatActivity(), NavigatorInterface {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        actionBar?.setDisplayHomeAsUpEnabled(false)
+
+        binding.bottomNavigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.ic_characters -> {
+                    showCharactersList()
+                }
+                R.id.ic_locations -> {
+                    showLocationsList()
+                }
+                R.id.ic_episodes -> {
+                    showEpisodesList()
+                }
+            }
+            return@setOnItemSelectedListener true
+        }
+
+
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, ListLocationsFragment())
+                .add(R.id.fragment_container, ListCharactersFragment())
                 .commit()
         }
-        binding.bottomNavigation.visibility = View.VISIBLE
 
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
+    override fun showCharactersList() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, ListCharactersFragment())
+            .commit()
+
+        actionBar?.setDisplayHomeAsUpEnabled(false)
+
+    }
 
     override fun showCharacterDetails(characterId: Int) {
         supportFragmentManager.beginTransaction()
@@ -36,16 +69,21 @@ class MainActivity : AppCompatActivity(), NavigatorInterface {
             .addToBackStack(null)
             .commit()
 
-        binding.bottomNavigation.visibility = View.GONE
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
+
     }
 
     override fun showLocationsList() {
-
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, ListLocationsFragment())
+            .commit()
     }
 
     override fun showEpisodesList() {
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.fragment_container, )
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, ListEpisodesFragment())
+            .commit()
     }
 
 
@@ -54,7 +92,6 @@ class MainActivity : AppCompatActivity(), NavigatorInterface {
             .replace(R.id.fragment_container, EpisodeDetailsFragment.newInstance(episodeId))
             .addToBackStack(null)
             .commit()
-        binding.bottomNavigation.visibility = View.GONE
     }
 
     override fun showLocationDetails(locationId: Int) {
@@ -66,5 +103,13 @@ class MainActivity : AppCompatActivity(), NavigatorInterface {
 
     override fun goBack() {
         onBackPressed()
+    }
+
+    fun bottomNavigationGone() {
+        binding.bottomNavigation.visibility = View.GONE
+    }
+
+    fun bottomNavigationVisible() {
+        binding.bottomNavigation.visibility = View.VISIBLE
     }
 }

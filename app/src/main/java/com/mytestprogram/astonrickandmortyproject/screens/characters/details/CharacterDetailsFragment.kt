@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.mytestprogram.astonrickandmortyproject.MainActivity
 import com.mytestprogram.astonrickandmortyproject.data.models.allepisodesresponse.SingleEpisode
 import com.mytestprogram.astonrickandmortyproject.databinding.FragmentCharactersDetailsBinding
 import com.mytestprogram.astonrickandmortyproject.screens.episodes.lists.ListEpisodesActionListener
@@ -24,7 +25,6 @@ class CharacterDetailsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.loadCharacterDetailsData(requireArguments().getInt(ARG_CHARACTER_ID))
-//        viewModel.loadAllEpisodes()
     }
 
     override fun onCreateView(
@@ -33,6 +33,8 @@ class CharacterDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCharactersDetailsBinding.inflate(layoutInflater, container, false)
+        (requireActivity() as MainActivity).bottomNavigationGone()
+
 
 
         adapter = CharacterDetailsAdapter(object : ListEpisodesActionListener {
@@ -65,6 +67,7 @@ class CharacterDetailsFragment : Fragment() {
                 navigator().showLocationDetails(locationId)
             }
 
+
             val episodesUrlsList: List<String> = viewModel.characterDetails.value!!.episode
             val episodeIds = mutableListOf<Int>()
             episodesUrlsList.forEach { i ->
@@ -75,6 +78,8 @@ class CharacterDetailsFragment : Fragment() {
             viewModel.episodeDetails.observe(viewLifecycleOwner, Observer {
                 adapter.episodes = viewModel.episodeDetails.value!!
             })
+
+
 
 
         })
