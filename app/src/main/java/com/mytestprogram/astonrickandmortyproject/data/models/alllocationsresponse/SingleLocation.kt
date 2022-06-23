@@ -7,7 +7,7 @@ data class SingleLocation(
     val dimension: String,
     val id: Int,
     val name: String,
-    val residents: List<Any>,
+    val residents: List<String>,
     val type: String,
     val url: String
 )

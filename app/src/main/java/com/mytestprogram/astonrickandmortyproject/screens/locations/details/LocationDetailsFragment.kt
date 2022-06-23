@@ -8,13 +8,17 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
 import com.mytestprogram.astonrickandmortyproject.databinding.FragmentListLocationsBinding
 import com.mytestprogram.astonrickandmortyproject.databinding.FragmentLocationDetailsBinding
 import com.mytestprogram.astonrickandmortyproject.screens.characters.details.CharacterDetailsFragment
+import com.mytestprogram.astonrickandmortyproject.screens.characters.lists.ListCharactersActionListener
+import com.mytestprogram.astonrickandmortyproject.screens.navigator
 
 class LocationDetailsFragment: Fragment() {
 
     private lateinit var binding: FragmentLocationDetailsBinding
+    private lateinit var adapter: LocationDetailsAdapter
     private val viewModel: LocationDetailsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,11 +33,33 @@ class LocationDetailsFragment: Fragment() {
     ): View? {
         binding = FragmentLocationDetailsBinding.inflate(layoutInflater, container, false)
 
+
+        adapter = LocationDetailsAdapter(object : ListCharactersActionListener{
+            override fun onCharacterDetailsScreen(characterId: Int) {
+                navigator().showCharacterDetails(characterId)
+            }
+        })
+        binding.locationDetailsCharactersRecyclerview.layoutManager = GridLayoutManager(context, 2)
+        binding.locationDetailsCharactersRecyclerview.adapter = adapter
+
         viewModel.locationDetails.observe(viewLifecycleOwner, Observer {
             binding.locationName.text = viewModel.locationDetails.value!!.name
             binding.locationDimension.text = viewModel.locationDetails.value!!.dimension
             binding.locationsType.text = viewModel.locationDetails.value!!.type
+
+            val characterUrlsList: List<String> = viewModel.locationDetails.value!!.residents
+            val characterIds = mutableListOf<Int>()
+            characterUrlsList.forEach { i ->
+                characterIds.add(i.substring(42).toInt())
+            }
+            viewModel.loadMultipleCharactersDetails(characterIds)
+
+            viewModel.characterDetails.observe(viewLifecycleOwner, Observer {
+                adapter.characters = viewModel.characterDetails.value!!
+            })
         })
+
+
         return binding.root
     }
 

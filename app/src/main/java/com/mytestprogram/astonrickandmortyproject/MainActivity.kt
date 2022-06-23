@@ -9,6 +9,7 @@ import com.mytestprogram.astonrickandmortyproject.screens.characters.lists.ListC
 import com.mytestprogram.astonrickandmortyproject.screens.episodes.details.EpisodeDetailsFragment
 import com.mytestprogram.astonrickandmortyproject.screens.episodes.lists.ListEpisodesFragment
 import com.mytestprogram.astonrickandmortyproject.screens.locations.details.LocationDetailsFragment
+import com.mytestprogram.astonrickandmortyproject.screens.locations.lists.ListLocationsFragment
 
 class MainActivity : AppCompatActivity(), NavigatorInterface {
 
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity(), NavigatorInterface {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, ListEpisodesFragment())
+                .add(R.id.fragment_container, ListLocationsFragment())
                 .commit()
         }
         binding.bottomNavigation.visibility = View.VISIBLE
